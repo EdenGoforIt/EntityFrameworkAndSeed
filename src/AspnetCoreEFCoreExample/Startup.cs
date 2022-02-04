@@ -26,7 +26,7 @@ namespace AspnetCoreEFCoreExample
             // Add framework services.
 
             services.AddMvc();
-            services.AddScoped<IExampleRepository, ExampleRepository>();
+            services.AddScoped<IExampleRepository, ExampleRepository>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +42,17 @@ namespace AspnetCoreEFCoreExample
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.MigrateAndSeedDb(development: true); 
+
+            }
+            else
+            {
+                app.MigrateAndSeedDb(development: false);
+            }
 
             app.UseMvc();
         }

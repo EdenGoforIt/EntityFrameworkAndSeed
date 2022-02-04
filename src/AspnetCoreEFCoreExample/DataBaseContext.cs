@@ -1,5 +1,9 @@
-﻿using AspnetCoreEFCoreExample.Models;
+﻿using System;
+using System.Collections.Generic;
+using AspnetCoreEFCoreExample.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AspnetCoreEFCoreExample
 {
@@ -9,6 +13,11 @@ namespace AspnetCoreEFCoreExample
 
         public DataBaseContext(DbContextOptions<DataBaseContext> options)
             : base(options)
-        { }
-    }
+        { 
+
+        }
+
+       
+    } 
+
 }
